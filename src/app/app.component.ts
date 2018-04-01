@@ -11,7 +11,11 @@ export class AppComponent {
   lat: number = 51.678418;
   lng: number = 7.809007;
 
- constructor(public gMaps: GoogleMapsAPIWrapper) {}
+ constructor(public gMaps: GoogleMapsAPIWrapper) {
+   console.log('MGPV2');
+ }
+
+ pClick() { console.log('MGP: pClick()'); }
 
  markerClicked = (markerObj) => {
    console.log(markerObj)

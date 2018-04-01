@@ -51,12 +51,10 @@
     </agm-marker>
     
 
-    <agm-polygon 
-      [paths]="markers"
+    <agm-polygon [paths]="markers"
       strokeWeight="4"
       strokeColor="orange"
-      fillOpacity="0"
-    ></agm-polygon> -->
+      fillOpacity="0"></agm-polygon> -->
 
 
 
@@ -69,12 +67,11 @@
       >
       </agm-marker> 
 
-      <!-- <agm-polygon 
-      [paths]="m.marker"
-      strokeWeight="3"
-      strokeColor="orange"
-      fillOpacity="0"
-    ></agm-polygon> -->
+			<agm-polygon [paths]="m.marker"
+      strokeWeight="3" (polyClick)="pClick()" 
+      strokeColor="orange" fillOpacity="0"></agm-polygon> 
+      <!-- 
+			-->
 
     <agm-polyline>
       <agm-polyline-point *ngFor="let data of m.marker" 
