@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GoogleMapsAPIWrapper } from '@agm/core';
+import { GoogleMapsAPIWrapper, PolyMouseEvent } from '@agm/core';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +12,16 @@ export class AppComponent {
   lng: number = 7.809007;
 
  constructor(public gMaps: GoogleMapsAPIWrapper) {
-   console.log('MGPV2');
+   console.log('MGPV4');
  }
 
- pClick() { console.log('MGP: pClick()'); }
+ pClick(e: PolyMouseEvent)
+ {
+  console.log(`MGPV4: pClick(${e})`);
+  console.log(e);
+	console.log(e.latLng.lat());
+	console.log(e.latLng.lng());
+ }
 
  markerClicked = (markerObj) => {
    console.log(markerObj)
