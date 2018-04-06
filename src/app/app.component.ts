@@ -10,29 +10,7 @@ export class AppComponent {
   title: string = 'Angular Google Maps';
   lat: number = 51.678418;
   lng: number = 7.809007;
-
- constructor(public gMaps: GoogleMapsAPIWrapper) {
-   console.log('MGPV4');
- }
-
- pClick(e: PolyMouseEvent)
- {
-  console.log(`MGPV4: pClick(${e})`);
-  console.log(e);
-	console.log(e.latLng.lat());
-	console.log(e.latLng.lng());
- }
-
- markerClicked = (markerObj) => {
-   console.log(markerObj)
-    this.gMaps.setCenter({ lat: markerObj.latitude, lng: markerObj.longitude });
-    console.log('clicked', markerObj, { lat: markerObj.latitude, lng: markerObj.longitude });
-  }
-
-  mapTypeId = "terrain"
-  changeMap(){
-    this.mapTypeId = "hybrid"
-  }
+  mapTypeId = 'terrain';
   newMarkers = [
     {
       marker : [
@@ -138,9 +116,7 @@ export class AppComponent {
         }
       ]
     }
-  ]
-
-  
+  ];
 
   lineRoute  = [
     {
@@ -159,55 +135,77 @@ export class AppComponent {
 
 
   markers: marker[] = [
-	  {
-		  lat: 51.673858,
-		  lng: 7.815982,
-		  label: 'A',
+    {
+      lat: 51.673858,
+      lng: 7.815982,
+      label: 'A',
       draggable: true,
       infowindowContent: 'test'
-	  },
-	  {
-		  lat: 51.373858,
-		  lng: 7.215982,
-		  label: 'B',
+    },
+    {
+      lat: 51.373858,
+      lng: 7.215982,
+      label: 'B',
       draggable: false,
       infowindowContent: 'test2'
-	  },
-	  {
-		  lat: 51.423858,
-		  lng: 7.895982,
-		  label: 'C',
+    },
+    {
+      lat: 51.423858,
+      lng: 7.895982,
+      label: 'C',
       draggable: true,
       infowindowContent: 'test3'
-	  },
-	  {
-		  lat: 52.423858,
-		  lng: 7.895982,
-		  label: 'C',
+    },
+    {
+      lat: 52.423858,
+      lng: 7.895982,
+      label: 'C',
       draggable: true,
       infowindowContent: 'test3'
-	  }
+    }
   ]
 
   stores: marker[] = [
-	  {
-		  lat: 53.673858,
-		  lng: 7.815982,
-		  label: 'A',
+    {
+      lat: 53.673858,
+      lng: 7.815982,
+      label: 'A',
       draggable: true,
       infowindowContent: 'test'
-	  },
-	  {
-		  lat: 53.373858,
-		  lng: 7.215982,
-		  label: 'B',
+    },
+    {
+      lat: 53.373858,
+      lng: 7.215982,
+      label: 'B',
       draggable: false,
       infowindowContent: 'test2'
-	  }
+    }
   ]
 
   oMarkers = [];
 
+
+ constructor(public gMaps: GoogleMapsAPIWrapper) {
+   console.log('MGPV4');
+ }
+
+ pClick(e: PolyMouseEvent) {
+  console.log(`MGPV4: pClick(${e})`);
+  console.log(e);
+  console.log(e.latLng.lat());
+  console.log(e.latLng.lng());
+ }
+
+ markerClicked = (markerObj) => {
+   console.log(markerObj)
+    this.gMaps.setCenter({ lat: markerObj.latitude, lng: markerObj.longitude });
+    console.log('clicked', markerObj, { lat: markerObj.latitude, lng: markerObj.longitude });
+  }
+
+  changeMap() {
+    this.mapTypeId = 'hybrid';
+  }
+        
   ngOnInit () {
     console.log(this.lineRoute);
     console.log(this.newMarkers);
@@ -242,9 +240,9 @@ export class AppComponent {
 
 // just an interface for type safety.
 interface marker {
-	lat: number;
-	lng: number;
-	label?: string;
+  lat: number;
+  lng: number;
+  label?: string;
   draggable: boolean;
   infowindowContent: string;
 }
